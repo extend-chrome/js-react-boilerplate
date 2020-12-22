@@ -1,0 +1,61 @@
+{
+  "name": "@extend-chrome/js-react-boilerplate",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Chrome extension boilerplate with JavaScript and React",
+  "keywords": [
+    "chrome-extension",
+    "web-extension",
+    "javascript",
+    "react",
+    "rollup",
+    "boilerplate"
+  ],
+  "homepage": "https://github.com/extend-chrome/js-react-boilerplate#readme",
+  "bugs": {
+    "url": "https://github.com/extend-chrome/js-react-boilerplate/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/extend-chrome/js-react-boilerplate.git"
+  },
+  "license": "MIT",
+  "author": "Jack Steam<jacksteamdev@gmail.com>",
+  "scripts": {
+    "build": "rollup -c",
+    "release": "cross-env NODE_ENV=production rollup -c",
+    "start": "rollup -c -w",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@types/chrome": "^0.0.127",
+    "@types/firefox-webext-browser": "^82.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "prettier": "^2.2.1",
+    "react": "npm:@esm-bundle/react@^17.0.1-fix.0",
+    "react-dom": "npm:@esm-bundle/react-dom@^17.0.1",
+    "webextension-polyfill": "^0.7.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@rollup/plugin-alias": "^3.1.1",
+    "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@types/jest": "^26.0.19",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.16.0",
+    "eslint-plugin-react": "^7.21.5",
+    "jest": "^26.6.3",
+    "jest-chrome": "^0.7.0",
+    "rollup": "^2.35.1",
+    "rollup-plugin-chrome-extension": "^3.4.0",
+    "rollup-plugin-empty-dir": "^1.0.4",
+    "rollup-plugin-zip": "^1.0.1",
+    "styled-jsx": "^3.3.2"
+  }
+}
