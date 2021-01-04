@@ -39,9 +39,9 @@ include here. All the filepaths in your manifest should point to files in `src`.
 
 ## Features
 
-Simple Bundling with Rollup
-Chrome Extension reloader
-Jest for testing
+- Simple Bundling with Rollup
+- Chrome Extension reloader
+- Jest for testing
 
 
 ## Resources
