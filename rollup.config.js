@@ -1,31 +1,13 @@
-import resolve from '@rollup/plugin-node-resolve'
-import commonjs from '@rollup/plugin-commonjs'
-import alias from '@rollup/plugin-alias'
 import babel from '@rollup/plugin-babel'
+import commonjs from '@rollup/plugin-commonjs'
+import replace from '@rollup/plugin-replace'
+import resolve from '@rollup/plugin-node-resolve'
 
 import { chromeExtension, simpleReloader } from 'rollup-plugin-chrome-extension'
 import { emptyDir } from 'rollup-plugin-empty-dir'
 import zip from 'rollup-plugin-zip'
 
 const isProduction = process.env.NODE_ENV === 'production'
-
-// Aliases for module resolution
-const aliases = isProduction
-  ? [
-      {
-        find: 'react',
-        // Use the production build
-        replacement: require.resolve('react/esm/react.production.min.js'),
-      },
-      {
-        find: 'react-dom',
-        // Use the production build
-        replacement: require.resolve(
-          'react-dom/esm/react-dom.production.min.js',
-        ),
-      },
-    ]
-  : []
 
 export default {
   input: 'src/manifest.json',
@@ -38,7 +20,11 @@ export default {
     chromeExtension(),
     // Adds a Chrome extension reloader during watch mode
     simpleReloader(),
-    alias({ entries: aliases }),
+    // Replace environment variables
+    replace({
+      preventAssignment: true,
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+    }),
     babel({
       // Do not transpile dependencies
       ignore: ['node_modules'],
